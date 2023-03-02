@@ -25,6 +25,7 @@ class UsuarioController extends AbstractController
     public function new(Request $request, UsuarioRepository $usuarioRepository): Response
     {
         $usuario = new Usuario();
+        
         $form = $this->createForm(UsuarioType::class, $usuario);
         $form->handleRequest($request);
 

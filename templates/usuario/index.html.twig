@@ -3,14 +3,15 @@
 {% block title %}Usuario index{% endblock %}
 
 {% block body %}
-    <h1>Usuario index</h1>
+    <h1>Indice de Usuarios </h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
-                <th>actions</th>
+                <th>Post</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -18,18 +19,20 @@
             <tr>
                 <td>{{ usuario.id }}</td>
                 <td>{{ usuario.nombre }}</td>
+                <td>{{ usuario.post }}</td>
                 <td>
-                    <a href="{{ path('app_usuario_show', {'id': usuario.id}) }}">show</a>
-                    <a href="{{ path('app_usuario_edit', {'id': usuario.id}) }}">edit</a>
+                    <a href="{{ path('app_usuario_show', {'id': usuario.id}) }}" class="btn btn-outline-success">Ver</a>
+                    <a href="{{ path('app_usuario_edit', {'id': usuario.id}) }}" class="btn btn-outline-success">Editar</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="4">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_usuario_new') }}">Create new</a>
+    <a href="{{ path('app_usuario_new') }}" class="btn btn-success">Create new</a>
+    <a href="{{ path('app_post_index') }}" class="btn btn-success">Posts</a>
 {% endblock %}
