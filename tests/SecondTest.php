@@ -11,8 +11,10 @@ class MyTest extends PantherTestCase
     public function testButtonClick()
     {
         $client = static::createPantherClient();
-        $client->request('GET', '/usuario');
-        $button = $client->findElement('css', '#btn1');
+        $client->request('GET', '/usuario/new');
+        $button = $client->getCrawler()->filter('.btn-success')->first();
+        // $button = $client->getCrawler()->selectButton('Crear Nuevo');
+        // $button = $client->getCrawler()->filterXPath('//a[contains(text(), "Crear Nuevo")]')->first();
         $button->click();
         $newUrl = $client->getCurrentURL();
         $this->assertNotEquals('/usuario', $newUrl);

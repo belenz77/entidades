@@ -19,7 +19,7 @@ class FirstTest extends PantherTestCase
         $client = static::createPantherClient();
         $crawler = $client->request('GET', '/post');
 
-        $this->assertSelectorTextContains('h1', 'Indice de Post');
+        $this->assertSelectorTextContains('h1', 'Post index');
     }
 
     public function testSomething3(): void
